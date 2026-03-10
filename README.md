@@ -8,7 +8,7 @@ Suite de automatización E2E para el frontend del sistema de gestión de tickets
 
 - Java 17+
 - Google Chrome instalado
-- La aplicación frontend corriendo en `http://localhost:8080`
+- La aplicación frontend corriendo en `http://localhost:80`
 
 Para levantar el frontend desde la carpeta `Semana 3/Frontend`:
 

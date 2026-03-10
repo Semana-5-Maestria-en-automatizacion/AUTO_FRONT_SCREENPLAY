@@ -11,6 +11,8 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+compileTestJava.options.encoding = 'UTF-8'
+
 repositories {
     mavenCentral()
 }
@@ -31,6 +33,7 @@ dependencies {
 
 test {
     useJUnit()
+    jvmArgs '-Dfile.encoding=UTF-8'
     testLogging {
         events 'passed', 'skipped', 'failed'
     }

@@ -18,7 +18,7 @@ public class PaginaModalCambioEstado extends PageObject {
     @FindBy(xpath = "//button[normalize-space(text())='Cancelar']")
     private WebElementFacade botonCancelar;
 
-    @FindBy(xpath = "//div[contains(@class,'bg-green-50') and contains(text(),'Estado actualizado exitosamente')]")
+    @FindBy(xpath = "//*[contains(@class,'bg-green-50') and contains(.,'Estado actualizado exitosamente')]")
     private WebElementFacade mensajeExito;
 
     public boolean estaVisible() {
@@ -46,12 +46,12 @@ public class PaginaModalCambioEstado extends PageObject {
     }
 
     public String obtenerMensajeExito() {
-        return mensajeExito.waitUntilVisible().getText();
+        return mensajeExito.withTimeoutOf(java.time.Duration.ofSeconds(5)).waitUntilVisible().getText();
     }
 
     public boolean estaOculto() {
         try {
-            tituloModal.waitUntilNotVisible();
+            tituloModal.withTimeoutOf(java.time.Duration.ofSeconds(8)).waitUntilNotVisible();
             return true;
         } catch (Exception e) {
             return false;
