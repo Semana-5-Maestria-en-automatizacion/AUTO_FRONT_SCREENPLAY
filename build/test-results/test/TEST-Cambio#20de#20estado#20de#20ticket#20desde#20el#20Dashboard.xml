@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cambio de estado de ticket desde el Dashboard" tests="3" skipped="0" failures="1" errors="0" timestamp="2026-03-10T15:34:20" hostname="G-NOOTBOOK" time="70.989">
+<testsuite name="Cambio de estado de ticket desde el Dashboard" tests="3" skipped="0" failures="1" errors="0" timestamp="2026-03-10T17:56:15" hostname="G-NOOTBOOK" time="64.194">
   <properties/>
-  <testcase name="El agente cambia el estado de un ticket a &quot;En Progreso&quot;" classname="Cambio de estado de ticket desde el Dashboard" time="44.83"/>
-  <testcase name="El agente cancela el cambio de estado" classname="Cambio de estado de ticket desde el Dashboard" time="8.357"/>
-  <testcase name="No se puede actualizar el estado por fallo de conexión" classname="Cambio de estado de ticket desde el Dashboard" time="17.802">
-    <failure message="java.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] &#13;&#10;Expecting actual not to be empty" type="java.lang.AssertionError">java.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] 
-Expecting actual not to be empty
-	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:68)
-	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_POM_FACTORY/src/test/resources/features/cambio_estado.feature:34)
+  <testcase name="El agente cambia el estado de un ticket a &quot;En Progreso&quot;" classname="Cambio de estado de ticket desde el Dashboard" time="38.727"/>
+  <testcase name="El agente cancela el cambio de estado" classname="Cambio de estado de ticket desde el Dashboard" time="11.744"/>
+  <testcase name="No se puede actualizar el estado por fallo de conexión" classname="Cambio de estado de ticket desde el Dashboard" time="13.723">
+    <failure message="java.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] &#13;&#10;Expecting actual:&#13;&#10;  &quot;Alta&quot;&#13;&#10;to contain:&#13;&#10;  &quot;conex&quot;&#13;&#10; (ignoring case)" type="java.lang.AssertionError">java.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] 
+Expecting actual:
+  &quot;Alta&quot;
+to contain:
+  &quot;conex&quot;
+ (ignoring case)
+	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:101)
+	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_SCREENPLAY/src/test/resources/features/cambio_estado.feature:34)
 </failure>
   </testcase>
   <system-out><![CDATA[
@@ -38,26 +42,29 @@ Scenario: No se puede actualizar el estado por fallo de conexión  ?[90m# src/te
   ?[32mThen ?[0m?[32mse visualiza el modal de cambio de estado?[0m                  ?[90m# co.sofka.automation.steps.PasosCambioEstado.verificaModalVisible()?[0m
   ?[32mWhen ?[0m?[32melige el estado ?[0m?[32m?[1m"En Progreso"?[0m?[32m en el modal?[0m                  ?[90m# co.sofka.automation.steps.PasosCambioEstado.eligeEstadoEnModal(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32mconfirma el cambio de estado?[0m                                ?[90m# co.sofka.automation.steps.PasosCambioEstado.confirmaElCambio()?[0m
-DEBUG obtenerMensajeError: ''
   ?[31mThen ?[0m?[31mse muestra un mensaje de error indicando fallo de conexión?[0m ?[90m# co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion()?[0m
       ?[31mjava.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] 
-Expecting actual not to be empty
-	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:68)
-	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_POM_FACTORY/src/test/resources/features/cambio_estado.feature:34)
+Expecting actual:
+  "Alta"
+to contain:
+  "conex"
+ (ignoring case)
+	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:101)
+	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_SCREENPLAY/src/test/resources/features/cambio_estado.feature:34)
 ?[0m
   ?[36mAnd ?[0m?[36mel modal permanece abierto?[0m                                  ?[90m# co.sofka.automation.steps.PasosCambioEstado.modalPermaneceAbierto()?[0m
 ]]></system-out>
-  <system-err><![CDATA[mar. 10, 2026 12:34:28 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <system-err><![CDATA[mar. 10, 2026 2:56:25 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 ADVERTENCIA: Unable to find CDP implementation matching 145
-mar. 10, 2026 12:34:28 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mar. 10, 2026 2:56:25 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-mar. 10, 2026 12:35:08 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+mar. 10, 2026 2:56:55 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 ADVERTENCIA: Unable to find CDP implementation matching 145
-mar. 10, 2026 12:35:08 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mar. 10, 2026 2:56:55 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-mar. 10, 2026 12:35:15 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+mar. 10, 2026 2:57:13 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 ADVERTENCIA: Unable to find CDP implementation matching 145
-mar. 10, 2026 12:35:15 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mar. 10, 2026 2:57:13 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>

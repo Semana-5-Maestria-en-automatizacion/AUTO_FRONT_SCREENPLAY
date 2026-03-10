@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1m10.99s</div>
+<div class="counter">1m4.19s</div>
 <p>duration</p>
 </div>
 </td>
@@ -80,9 +80,13 @@
 <h3 class="failures">No se puede actualizar el estado por fallo de conexión</h3>
 <span class="code">
 <pre>java.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] 
-Expecting actual not to be empty
-	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:68)
-	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_POM_FACTORY/src/test/resources/features/cambio_estado.feature:34)
+Expecting actual:
+  &quot;Alta&quot;
+to contain:
+  &quot;conex&quot;
+ (ignoring case)
+	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:101)
+	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_SCREENPLAY/src/test/resources/features/cambio_estado.feature:34)
 </pre>
 </span>
 </div>
@@ -99,17 +103,17 @@ Expecting actual not to be empty
 </thead>
 <tr>
 <td class="success">El agente cambia el estado de un ticket a &quot;En Progreso&quot;</td>
-<td class="success">44.830s</td>
+<td class="success">38.727s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">El agente cancela el cambio de estado</td>
-<td class="success">8.357s</td>
+<td class="success">11.744s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">No se puede actualizar el estado por fallo de conexión</td>
-<td class="failures">17.802s</td>
+<td class="failures">13.723s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -145,12 +149,15 @@ Scenario: No se puede actualizar el estado por fallo de conexión  ?[90m# src/te
   ?[32mThen ?[0m?[32mse visualiza el modal de cambio de estado?[0m                  ?[90m# co.sofka.automation.steps.PasosCambioEstado.verificaModalVisible()?[0m
   ?[32mWhen ?[0m?[32melige el estado ?[0m?[32m?[1m&quot;En Progreso&quot;?[0m?[32m en el modal?[0m                  ?[90m# co.sofka.automation.steps.PasosCambioEstado.eligeEstadoEnModal(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32mconfirma el cambio de estado?[0m                                ?[90m# co.sofka.automation.steps.PasosCambioEstado.confirmaElCambio()?[0m
-DEBUG obtenerMensajeError: ''
   ?[31mThen ?[0m?[31mse muestra un mensaje de error indicando fallo de conexión?[0m ?[90m# co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion()?[0m
       ?[31mjava.lang.AssertionError: [Debe mostrarse mensaje de error por fallo de conexión] 
-Expecting actual not to be empty
-	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:68)
-	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_POM_FACTORY/src/test/resources/features/cambio_estado.feature:34)
+Expecting actual:
+  &quot;Alta&quot;
+to contain:
+  &quot;conex&quot;
+ (ignoring case)
+	at co.sofka.automation.steps.PasosCambioEstado.verificaMensajeErrorConexion(PasosCambioEstado.java:101)
+	at ✽.se muestra un mensaje de error indicando fallo de conexión(file:///C:/Trabajo/Sofka/Semana%205/AUTO_FRONT_SCREENPLAY/src/test/resources/features/cambio_estado.feature:34)
 ?[0m
   ?[36mAnd ?[0m?[36mel modal permanece abierto?[0m                                  ?[90m# co.sofka.automation.steps.PasosCambioEstado.modalPermaneceAbierto()?[0m
 </pre>
@@ -159,17 +166,17 @@ Expecting actual not to be empty
 <div id="tab3" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>mar. 10, 2026 12:34:28 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+<pre>mar. 10, 2026 2:56:25 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 ADVERTENCIA: Unable to find CDP implementation matching 145
-mar. 10, 2026 12:34:28 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mar. 10, 2026 2:56:25 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-mar. 10, 2026 12:35:08 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+mar. 10, 2026 2:56:55 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 ADVERTENCIA: Unable to find CDP implementation matching 145
-mar. 10, 2026 12:35:08 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mar. 10, 2026 2:56:55 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-mar. 10, 2026 12:35:15 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+mar. 10, 2026 2:57:13 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 ADVERTENCIA: Unable to find CDP implementation matching 145
-mar. 10, 2026 12:35:15 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mar. 10, 2026 2:57:13 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 </pre>
 </span>
@@ -182,7 +189,7 @@ ADVERTENCIA: Unable to find version of CDP to use for 145.0.7632.160. You may ne
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.11</a> at 10 mar. 2026 12:35:33</p>
+<a href="http://www.gradle.org">Gradle 8.11</a> at 10 mar. 2026 14:57:20</p>
 </div>
 </div>
 </body>

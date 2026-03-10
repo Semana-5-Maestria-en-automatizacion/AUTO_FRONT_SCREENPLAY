@@ -1,67 +1,100 @@
 package co.sofka.automation.steps;
 
-import co.sofka.automation.pages.PaginaDashboard;
-import co.sofka.automation.pages.PaginaModalCambioEstado;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import io.cucumber.java.en.Then;
+import co.sofka.automation.preguntas.ModalEstaOculto;
+import co.sofka.automation.preguntas.ModalEstaVisible;
+import co.sofka.automation.preguntas.TextoDelMensajeDeError;
+import co.sofka.automation.preguntas.TicketsEstanCargados;
+import co.sofka.automation.tareas.AbrirDashboard;
+import co.sofka.automation.tareas.CancelarCambioDeEstado;
+import co.sofka.automation.tareas.ConfirmarCambioDeEstado;
+import co.sofka.automation.tareas.ElegirEstadoEnModal;
+import co.sofka.automation.tareas.SeleccionarPrimerTicket;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.serenitybdd.screenplay.actors.OnStage;
 import org.assertj.core.api.Assertions;
 
 public class PasosCambioEstado {
 
-    private PaginaDashboard paginaDashboard;
-    private PaginaModalCambioEstado paginaModalCambioEstado;
+    @Before
+    public void prepararEscenario() {
+        OnStage.setTheStage(new OnlineCast());
+    }
+
+    @After
+    public void limpiarEscenario() {
+        OnStage.drawTheCurtain();
+    }
 
     @Given("que el usuario está en el Dashboard de gestión de tickets")
     public void usuarioEnDashboard() {
-        paginaDashboard.openAt("/dashboard");
+        OnStage.theActorCalled("el agente").attemptsTo(
+                AbrirDashboard.deGestionDeTickets()
+        );
     }
 
     @And("los tickets están cargados en la tabla")
     public void ticketsCargadosEnTabla() {
-        Assertions.assertThat(paginaDashboard.tieneFichasListadas())
+        Actor agente = OnStage.theActorInTheSpotlight();
+        Assertions.assertThat(agente.asksFor(TicketsEstanCargados.enLaTabla()))
                 .as("Deben existir tickets listados en la tabla del Dashboard")
                 .isTrue();
     }
 
     @When("selecciona el primer ticket de la lista")
     public void seleccionaPrimerTicket() {
-        paginaDashboard.hacerClicEnPrimerTicket();
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SeleccionarPrimerTicket.delaLista()
+        );
     }
 
     @Then("se visualiza el modal de cambio de estado")
     public void verificaModalVisible() {
-        Assertions.assertThat(paginaModalCambioEstado.estaVisible())
+        Actor agente = OnStage.theActorInTheSpotlight();
+        Assertions.assertThat(agente.asksFor(ModalEstaVisible.deCambioDeEstado()))
                 .as("El modal de cambio de estado debe estar visible")
                 .isTrue();
     }
 
     @When("elige el estado {string} en el modal")
     public void eligeEstadoEnModal(String estado) {
-        paginaModalCambioEstado.seleccionarEstado(estado);
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                ElegirEstadoEnModal.conEtiqueta(estado)
+        );
     }
 
     @And("confirma el cambio de estado")
     public void confirmaElCambio() {
-        paginaModalCambioEstado.confirmar();
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                ConfirmarCambioDeEstado.enElModal()
+        );
     }
 
     @When("cancela el cambio de estado")
     public void cancelaElCambio() {
-        paginaModalCambioEstado.cancelar();
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                CancelarCambioDeEstado.enElModal()
+        );
     }
 
     @Then("el modal se cierra sin que el estado haya cambiado")
     public void verificaModalCerradoSinCambio() {
-        Assertions.assertThat(paginaModalCambioEstado.estaOculto())
+        Actor agente = OnStage.theActorInTheSpotlight();
+        Assertions.assertThat(agente.asksFor(ModalEstaOculto.deCambioDeEstado()))
                 .as("El modal debe cerrarse tras cancelar")
                 .isTrue();
     }
 
     @Then("se muestra un mensaje de error indicando fallo de conexión")
     public void verificaMensajeErrorConexion() {
-        String texto = paginaModalCambioEstado.obtenerMensajeError();
+        Actor agente = OnStage.theActorInTheSpotlight();
+        String texto = agente.asksFor(TextoDelMensajeDeError.enElModal());
         Assertions.assertThat(texto)
                 .as("Debe mostrarse mensaje de error por fallo de conexión")
                 .isNotEmpty()
@@ -70,14 +103,16 @@ public class PasosCambioEstado {
 
     @And("el modal permanece abierto")
     public void modalPermaneceAbierto() {
-        Assertions.assertThat(paginaModalCambioEstado.estaVisible())
+        Actor agente = OnStage.theActorInTheSpotlight();
+        Assertions.assertThat(agente.asksFor(ModalEstaVisible.deCambioDeEstado()))
                 .as("El modal debe permanecer visible tras error")
                 .isTrue();
     }
 
     @Then("el modal se cierra confirmando que el estado fue actualizado")
     public void verificaCierreDelModal() {
-        Assertions.assertThat(paginaModalCambioEstado.estaOculto())
+        Actor agente = OnStage.theActorInTheSpotlight();
+        Assertions.assertThat(agente.asksFor(ModalEstaOculto.deCambioDeEstado()))
                 .as("El modal debe cerrarse automáticamente tras la actualización exitosa")
                 .isTrue();
     }
