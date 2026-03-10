@@ -41,7 +41,8 @@ Proyecto testeado -> [https://github.com/AITraining-SofkaProyects-Team2](https:/
 ```bash
 # Linux / macOS
 ./gradlew clean test aggregate
-
+```
+```bash
 # Windows (con navegador visible)
 .\gradlew.bat clean test aggregate "-Dheadless.mode=false" "-Dwebdriver.driver=chrome"
 ```
