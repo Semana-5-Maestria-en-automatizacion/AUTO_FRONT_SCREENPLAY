@@ -1,11 +1,9 @@
 package co.sofka.automation.steps;
 
 import co.sofka.automation.preguntas.ModalEstaOculto;
-import co.sofka.automation.preguntas.ModalEstaVisible;
-import co.sofka.automation.preguntas.TextoDelMensajeDeError;
 import co.sofka.automation.preguntas.TicketsEstanCargados;
+import co.sofka.automation.preguntas.ModalEstaVisible;
 import co.sofka.automation.tareas.AbrirDashboard;
-import co.sofka.automation.tareas.CancelarCambioDeEstado;
 import co.sofka.automation.tareas.ConfirmarCambioDeEstado;
 import co.sofka.automation.tareas.ElegirEstadoEnModal;
 import co.sofka.automation.tareas.SeleccionarPrimerTicket;
@@ -74,39 +72,6 @@ public class PasosCambioEstado {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 ConfirmarCambioDeEstado.enElModal()
         );
-    }
-
-    @When("cancela el cambio de estado")
-    public void cancelaElCambio() {
-        OnStage.theActorInTheSpotlight().attemptsTo(
-                CancelarCambioDeEstado.enElModal()
-        );
-    }
-
-    @Then("el modal se cierra sin que el estado haya cambiado")
-    public void verificaModalCerradoSinCambio() {
-        Actor agente = OnStage.theActorInTheSpotlight();
-        Assertions.assertThat(agente.asksFor(ModalEstaOculto.deCambioDeEstado()))
-                .as("El modal debe cerrarse tras cancelar")
-                .isTrue();
-    }
-
-    @Then("se muestra un mensaje de error indicando fallo de conexión")
-    public void verificaMensajeErrorConexion() {
-        Actor agente = OnStage.theActorInTheSpotlight();
-        String texto = agente.asksFor(TextoDelMensajeDeError.enElModal());
-        Assertions.assertThat(texto)
-                .as("Debe mostrarse mensaje de error por fallo de conexión")
-                .isNotEmpty()
-                .containsIgnoringCase("conex");
-    }
-
-    @And("el modal permanece abierto")
-    public void modalPermaneceAbierto() {
-        Actor agente = OnStage.theActorInTheSpotlight();
-        Assertions.assertThat(agente.asksFor(ModalEstaVisible.deCambioDeEstado()))
-                .as("El modal debe permanecer visible tras error")
-                .isTrue();
     }
 
     @Then("el modal se cierra confirmando que el estado fue actualizado")

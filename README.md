@@ -90,7 +90,21 @@ AUTO_FRONT_SCREENPLAY/
         │   └── cambio_estado.feature                   # Escenarios Gherkin en español
         └── serenity.conf                               # Configuración del driver y URL base
 ```
+src/test
+└── java
+    └── com
+        └── miejemplo
+├── hooks            → crear .gitkeep
+            ├── questions         → crear .gitkeep
+            └── runners           → crear .gitkeep
+            ├── stepdefinitions   → crear .gitkeep
+            ├── tasks             → crear .gitkeep
+            ├── ui       → crear .gitkeep
+            ├── util      → crear .gitkeep
 
+└── resources
+    └── features
+        └── consulta.feature     → crear este archivo con un ejemplo básico en Gherkin
 ---
 
 ## Patrón Screenplay
