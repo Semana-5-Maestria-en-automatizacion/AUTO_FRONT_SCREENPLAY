@@ -4,6 +4,8 @@ Proyecto de automatización frontend con el patrón **Screenplay** (Actores, Tar
 
 Repo => [https://github.com/Semana-5-Maestria-en-automatizacion/AUTO_FRONT_POM_FACTORY](https://github.com/Semana-5-Maestria-en-automatizacion/AUTO_FRONT_POM_FACTORY)
 
+Testea el proyecto del siguiente repositorio => [https://github.com/AITraining-SofkaProyects-Team2](https://github.com/AITraining-SofkaProyects-Team2)
+
 ---
 
 ## Flujo cubierto
